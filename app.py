@@ -7,6 +7,8 @@ import os
 
 # File to store the API key
 API_KEY_FILE = "api_key.json"
+# Global variable to store recommendations
+global_recommendations = []
 
 def load_api_key():
     """Load API key from file."""
@@ -46,6 +48,7 @@ def save_playlist(tracks, file_path):
 def run_recommendations():
     """Run recommendations on a separate thread."""
     def task():
+        global global_recommendations
         api_key = api_key_entry.get()
         track_name = track_entry.get()
         artist_name = artist_entry.get()
@@ -56,6 +59,7 @@ def run_recommendations():
             return
 
         similar_tracks = get_similar_tracks(track_name, artist_name, api_key, num_songs)
+        global_recommendations = similar_tracks
         display_recommendations(similar_tracks)
 
     threading.Thread(target=task).start()
@@ -72,15 +76,14 @@ def display_recommendations(tracks):
 
 def save_recommendations():
     """Save recommendations to a text file."""
-    tracks = result_text.get(1.0, ctk.END).strip().split('\n')
-    if not tracks or tracks == ['']:
+    if not global_recommendations:
         messagebox.showerror("Save Error", "No recommendations to save.")
         return
 
     file_path = filedialog.asksaveasfilename(defaultextension=".txt",
                                            filetypes=[("Text files", "*.txt")])
     if file_path:
-        save_playlist(tracks, file_path)
+        save_playlist(global_recommendations, file_path)
         messagebox.showinfo("Success", "Playlist saved successfully.")
 
 def save_key():
@@ -132,8 +135,9 @@ save_button.pack(pady=10)
 result_frame = ctk.CTkFrame(app)
 result_frame.pack(pady=10, fill=ctk.BOTH, expand=True)
 
-result_text = scrolledtext.ScrolledText(result_frame, wrap='word', state=ctk.DISABLED)
+result_text = scrolledtext.ScrolledText(result_frame, wrap='word', height=15, width=70, bg="#2E2E2E", fg="#FFFFFF", insertbackground='white')
 result_text.pack(fill=ctk.BOTH, expand=True)
+result_text.config(state=ctk.DISABLED)
 
 app.mainloop()
 
