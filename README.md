@@ -83,7 +83,5 @@ Made it to have a similar experience to a "song radio" on Qobuz importing the pl
 - `app.py`: The main Python script for the application.
 - `api_key.json`: A JSON file used to store the Last.fm API key (automatically created and managed by the application).
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
