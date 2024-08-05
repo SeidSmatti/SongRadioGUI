@@ -18,7 +18,7 @@ Made it to have a similar experience to a "song radio" on Qobuz importing the pl
 1. **Clone the Repository** (or download the source code):
 
     ```bash
-    git clone https://github.com/SeidSmatti/SongRadio.git
+    git clone https://github.com/SeidSmatti/SongRadioGUI.git
     cd SongRadioGUI
     ```
 
