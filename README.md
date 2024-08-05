@@ -55,7 +55,7 @@ Made it to have a similar experience to a "song radio" on Qobuz importing the pl
     Execute the Python script to launch the GUI:
 
     ```bash
-    python SongRadioGUI.py
+    python app.py
     ```
 
 2. **Configure API Key**:
@@ -80,7 +80,7 @@ Made it to have a similar experience to a "song radio" on Qobuz importing the pl
 
 ## Files
 
-- `SongRadioGUI.py`: The main Python script for the application.
+- `app.py`: The main Python script for the application.
 - `api_key.json`: A JSON file used to store the Last.fm API key (automatically created and managed by the application).
 
 ## License
