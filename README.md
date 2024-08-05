@@ -19,7 +19,7 @@ Made it to have a similar experience to a "song radio" on Qobuz importing the pl
 
     ```bash
     git clone https://github.com/SeidSmatti/SongRadio.git
-    cd playlist-recommender
+    cd SongRadioGUI
     ```
 
 2. **Install Dependencies**:
