@@ -30,7 +30,7 @@ Made it to have a similar experience to a "song radio" on Qobuz importing the pl
     pip install customtkinter requests
     ```
 
-3. **Make sure you have tkinter installed :
+3. Make sure you have tkinter installed :
    
    For Mac OS
    ```sh
